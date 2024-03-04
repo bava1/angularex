@@ -1,0 +1,64 @@
+<div class="contacts">
+  <div class="contacts-main">
+    <h1>{{ 'contacts-title' | translate }}</h1>
+
+    <!--Contact filter form-->
+    <div class="contacts-main_forms">
+      <div style="width: 100%;">
+        <mat-form-field class="example-full-width">
+          <input
+            (keyup)="applyFilter($event)"
+            [(ngModel)]="value"
+            #taskName
+            matInput
+            placeholder="search for contact">
+            <mat-icon *ngIf="value" (click)="clearFilter()" matSuffix>close</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!--Displaying a list of contacts-->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <div mat-cell *matCellDef="let element" class="contacts-main_tab">
+          <img class="contacts-main_tab-img" src="././assets/imgContact/img{{ element.imgUrl }}.jpg" alt="" />
+          <div class="contacts-main_tab-content">
+            <div class="contacts-main_tab-content_left">
+              <div>{{ element.name }}</div>
+              <span>
+                @switch (element.position) {
+                  @case ('consultant') {
+                    <mat-icon class="case-icon">contactless</mat-icon>
+                  }
+                  @case ('director') {
+                    <mat-icon class="case-icon">account_balance</mat-icon>
+                  }
+                  @case ('marketer') {
+                    <mat-icon class="case-icon">analytics</mat-icon>
+                  }
+                  @default {
+                    <mat-icon class="case-icon">lock</mat-icon>
+                  }
+                }
+                {{ element.position }}
+              </span>
+            </div>
+            <div class="contacts-main_tab-content_right">
+              <div>
+                <mat-icon class="mail-icon">mail</mat-icon>
+                <span> {{ element.email }}</span>
+              </div>
+              <div>
+                <mat-icon class="phone-icon">phone</mat-icon>
+                <span> {{ element.phone }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="resultsLength" [pageSize]="10" aria-label="Select page of GitHub search results"></mat-paginator>
+  </div>
+</div>
+

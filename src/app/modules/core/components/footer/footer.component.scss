@@ -1,0 +1,183 @@
+.footer {
+  width: 100%;
+  height: 775px;
+  background-image: url('/assets/img/FooterBack.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-main {
+    width: 70%;
+    margin: 0 auto;
+    padding: 7% 0 0;
+    letter-spacing: 2px;
+
+    &_links {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      margin: 1% auto;
+    }
+
+    &_link {
+      margin: 0 2%;
+      padding: 1% 3%;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &_link:hover {
+      color: rgb(243, 158, 108);
+    }
+
+    &_translations {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      margin: 2% auto;
+    }
+
+    &_translation {
+      width: 10%;
+      height: 10%;
+      margin: 0 2%;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    }
+
+    &_translation:hover {
+      transform: scale(1.1);
+    }
+
+    &_gitLab {
+      display: block;
+      width: 5%;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+
+    &_gitLab:hover {
+      transform: scale(1.1);
+    }
+
+    &_technology {
+      display: flex;
+      width: 250px;
+      margin: 0 auto;
+
+      &-tech1 {
+        width: 60px;
+      }
+
+      &-tech1:hover {
+        transform: scale(1.1);
+      }
+
+      &-tech2 {
+        width: 35px;
+      }
+    }
+  }
+}
+
+h3 {
+  width: 94%;
+  margin: 1% auto;
+  padding: 1% 0 0;
+  color: white;
+  text-align: center;
+}
+
+.active {
+  opacity: .2;
+
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1200px) {
+
+  .footer-main {
+      width: 84%;
+      padding: 5% 0;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 6% 0;
+  }
+
+  .footer-main {
+      width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+  .footer-main {
+      width: 100%;
+      padding: 5% 0;
+  }
+
+  .footer-main_links {
+      width: 80%;
+      margin: 5% auto;
+  }
+
+  .footer-main_link {
+      margin: 0 2%;
+      padding: 1% 3%;
+  }
+
+  .footer-main_translations {
+      width: 90%;
+      margin: 5% auto;
+  }
+
+  .footer-main_translation {
+      width:15%;
+  }
+
+  .footer-main_gitLab {
+      width: 15%;
+      margin: 2% auto;
+  }
+
+  .footer-main_tech {
+    width: 45%;
+    margin: 2% auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+
+  .footer-main_links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-main_link {
+    padding: 15px 0;
+  }
+
+  .footer {
+      padding: 30% 0;
+  }
+
+  .footer-main_translations {
+      width: 86%;
+      margin: 5% auto;
+  }
+
+  .footer-main_gitLab {
+      width: 24%;
+      margin: 2% auto;
+  }
+
+}
+

@@ -1,0 +1,54 @@
+<section class="tasks">
+  <div class="tasks-main">
+    <h1>{{ 'tasks1-title' | translate }}</h1>
+    <h3>{{ 'tasks1-title3' | translate }}</h3>
+
+    <!-- Form for adding a task -->
+    <div class="tasks-main_forms">
+      <mat-form-field class="example-full-width">
+        <input #taskName matInput placeholder="Add your new task">
+        @if (taskName.value) {
+          <mat-icon matSuffix (click)="taskName.value = ''">close</mat-icon>
+        }
+      </mat-form-field>
+      <button (click)="addTask(taskName.value); taskName.value=''" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        Add
+      </button>
+    </div>
+
+    <!-- Update task block -->
+    <div *ngIf="openUpdate" class="tasks-main_update">
+      <mat-icon class="tasks-main_update-iconclose" (click)="openUpdate=false">clear</mat-icon>
+      <h3>{{ 'tasks1-title5' | translate }}</h3>
+      <div class="tasks-main_update-form">
+        <mat-form-field class="example-full-width_update">
+          <input [(ngModel)]="upload" placeholder="Select the task you want to change !" #upName matInput>
+        </mat-form-field>
+        <div>
+          <button (click)="saveUpdateTask(upName.value)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tasks list -->
+    <h3>{{ 'tasks1-title4' | translate }} {{ tasks.length }}</h3>
+    @for (task of tasks; track task; let idx = $index ) {
+      <div class="tasks-main_block">
+        <div class="tasks-main_block-tab">
+          <div class="tasks-main_block-text">
+            {{ task.name }}
+          </div>
+          <div class="tasks-main_block-icons">
+            <mat-icon class="tasks-main_block-icons_edit" (click)="onSelectTask(task, idx)">edit</mat-icon>
+            <mat-icon class="tasks-main_block-icons_clear" (click)="deleteTasks(idx)">clear</mat-icon>
+          </div>
+        </div>
+      </div>
+    }
+    @empty {
+      <div class="tasks-main_empty">You have no tasks!</div>
+    }
+  </div>
+</section>

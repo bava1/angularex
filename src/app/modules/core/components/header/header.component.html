@@ -1,0 +1,21 @@
+<div class="header">
+  <div class="header-menu">
+    <div class="header-menu_logo">
+      <img src="../assets/img/Logo.png" alt="">
+    </div>
+    <div class="header-menu_buttons">
+      <div class="header-menu_buttons_lang">
+        <img src='../assets/img/{{loc}}-min.jpg' alt="">
+        <!--select change interface language-->
+        <form [formGroup]="selectForm">
+          <select name="state" formControlName="selectedValue">
+            @for (state of states; track state) {
+              <option [value]="state.abbrev"> {{ state.abbrev }} </option>
+            }
+          </select>
+        </form>
+      </div>
+      <mat-icon class="header-menu_buttons_menu" (click)="menuView()">menu</mat-icon>
+    </div>
+  </div>
+</div>

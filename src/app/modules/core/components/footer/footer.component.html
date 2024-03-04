@@ -1,0 +1,43 @@
+<footer class="footer">
+  <div class="footer-main">
+    <h3>{{ 'footer-title' | translate }}</h3>
+
+    <!--Links to go to different pages of the site-->
+    <div class="footer-main_links">
+      @for (link of links; track link) {
+        <a routerLink="{{link.link}}" class="footer-main_link">{{ link.title | translate }}</a>
+      }
+    </div>
+    <h3>{{ 'footer-ftranslations' | translate }}</h3>
+
+    <!--Change interface language-->
+    <div class="footer-main_translations">
+      @for (country of countries; track country) {
+        <img
+          [ngClass]="loc === country ? 'active' : null"
+          (click)="changeLoc(country)"
+          class="footer-main_translation"
+          alt="translation-ru"
+          src='../../assets/img/{{country}}.jpg'>
+        }
+    </div>
+
+    <h3>{{ 'tasks1-title6' | translate }}</h3>
+    <div class="footer-main_technology">
+      <a href="https://angular.io/" target="_blank">
+        <img class="footer-main_technology-tech1" alt="gitLab" src="../../assets/img/Tech-1.png">
+      </a>
+      <img class="footer-main_technology-tech2" alt="gitLab" src="../../assets/img/Tech-2.png">
+      <a href="https://material.angular.io/" target="_blank">
+        <img class="footer-main_technology-tech1" alt="gitLab" src="../../assets/img/Tech-3.png">
+      </a>
+      <img class="footer-main_technology-tech2" alt="gitLab" src="../../assets/img/Tech-2.png">
+      <a href="https://ngrx.io/" target="_blank">
+        <img class="footer-main_technology-tech1" alt="gitLab" src="../../assets/img/Tech-4.png">
+      </a>
+    </div>
+    <h3>{{ 'footer-source' | translate }}</h3>
+    <a href="https://github.com/bava1/angularex"><img class="footer-main_gitLab" alt="gitLab" src="../../assets/img/github.png"></a>
+  </div>
+
+</footer>

@@ -1,0 +1,29 @@
+<div class="articles">
+  <div class="articles-main">
+    <h1>{{ 'articles-title' | translate }}</h1>
+      <mat-accordion>
+        <!-- Articles -->
+        @for (article of contentArticles; track article) {
+          <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="articles-main_title">
+                  {{ article.title }}
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="articles-main_content">
+              @if (article.textImg) {
+                <img class="articles-main_content-img" src='{{article?.textImg}}' alt="img">
+              }
+              <p>{{ article.textSet1 }}</p>
+              <p>{{ article.textSet2 }}</p>
+              <p>{{ article.textSet3 }}</p>
+            </div>
+          </mat-expansion-panel>
+        }
+      </mat-accordion>
+  </div>
+</div>

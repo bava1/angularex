@@ -1,0 +1,24 @@
+
+{
+    "home": "Hause",
+    "title": "TSCHECHISCHE REPUBLIK",
+    "tasks": "Aufgaben",
+    "articles": "Artikel",
+    "contacts": "Kontakte",
+    "main-title": "Das Erlernen des Angular-Frameworks ist der wahre Weg an die Spitze der Entwicklung",
+    "articles-title": "Liste der Artikel",
+    "contacts-title": "Kontaktliste",
+    "tasks1-title": "Liste der Aufgaben",
+    "tasks1-title2": "Daten von einer externen Quelle empfangen",
+    "tasks1-title22": "Quelle:",
+    "tasks1-title3": "Interne Datenquelle",
+    "tasks1-title4": "Anzahl der Aufgaben: ",
+    "tasks1-title44": "Um eine Aufgabe zu ändern, klicken Sie darauf, bearbeiten und speichern",
+    "tasks1-title5": "Wählen Sie die Aufgabe aus, die Sie bearbeiten möchten:",
+    "tasks1-title6": "Während der Erstellung verwendete Technologien:",
+    "footer-title": "Zusätzliche Funktionen und Informationen",
+    "footer-ftranslations": "Interface-Sprache auswählen",
+    "footer-source": "Link zum Quellcode",
+    "chat": "ChatBot",
+    "chat-response": "Antwort"
+}
