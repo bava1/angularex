@@ -1,27 +1,192 @@
-# Angularex
+# ANGULAREX
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+**ANGULAREX** is a demonstration project created to showcase practical experience with modern Angular development, frontend architecture, and AI integration.
 
-## Development server
+The project combines a traditional Angular application with an AI-powered assistant connected to a custom backend gateway. It serves as an experimental environment for testing UI patterns, Angular features, and modern AI workflows.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> This project is intended as a portfolio/demo application rather than a production system.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
+
+- Angular 17 application architecture
+- Modular structure (`core`, `shared`, `services`, `pages`)
+- Responsive UI
+- AI-powered Angular Developer Chat
+- Code block rendering with copy support
+- Backend communication through protected AI Gateway
+- Error handling for limits and unavailable AI services
+- Environment-based configuration
+- Component-based architecture
+- Mobile-friendly modal chat interface
+
+---
+
+## AI Chat Integration
+
+The project includes an **Angular Developer Chat**, designed as a lightweight AI assistant focused primarily on:
+
+- Angular
+- TypeScript
+- RxJS
+- Services & Components
+- Routing
+- Angular Material
+- Frontend architecture
+- Debugging and development workflows
+
+AI requests are routed through an external backend gateway:
+
+```text
+Angular Frontend
+        ↓
+AI Gateway Backend
+        ↓
+LLM / AI Provider
+```
+
+The frontend never stores private AI provider keys.
+
+---
+
+## Architecture Overview
+
+Project structure:
+
+```text
+src/
+ ├── app/
+ │    ├── modules/
+ │    │      ├── core/
+ │    │      ├── pages/
+ │    │      ├── services/
+ │    │      ├── shared/
+ │    │      └── store/
+ │    │
+ │    └── features/
+ │           └── chat/
+ │                 ├── components/
+ │                 ├── services/
+ │                 └── models/
+ │
+ ├── environments/
+ └── assets/
+```
+
+Main principles:
+
+- Separation of concerns
+- Modular architecture
+- Reusable services
+- Feature-based organization
+- Environment configuration
+- AI integration via gateway pattern
+
+---
+
+## Installation
+
+Clone repository:
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd angularex
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+ng serve
+```
+
+Open:
+
+```text
+http://localhost:4200
+```
+
+---
+
+## Environment Configuration
+
+Configure:
+
+```text
+src/environments/environment.ts
+```
+
+Example:
+
+```ts
+export const environment = {
+  aiGatewayBaseUrl: 'YOUR_BACKEND_URL',
+  aiClientId: 'angularex',
+  aiClientToken: 'demo-token'
+};
+```
+
+---
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Production build:
 
-## Running unit tests
+```bash
+ng build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Artifacts:
 
-## Running end-to-end tests
+```text
+dist/
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Technologies
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Frontend
+- Angular 17
+- TypeScript
+- SCSS
+- RxJS
+- Angular CLI
+
+### AI Integration
+- Custom AI Gateway
+- LLM integration
+- Rate limiting
+- Client token validation
+
+### Development
+- Git
+- npm
+- Responsive UI patterns
+
+---
+
+## Purpose of the Project
+
+The goal of this project is to demonstrate:
+
+- Angular development skills
+- Component architecture
+- API integration
+- AI-assisted frontend features
+- Modern UI implementation
+- Practical experimentation with AI workflows
+
+---
+
+## Disclaimer
+
+This project is intended primarily for learning, experimentation, and portfolio demonstration purposes.
+
+Some features may use demo limits or simplified configurations and are not designed as enterprise production solutions.
