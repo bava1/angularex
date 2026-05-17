@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true
+  production: true,
+  aiGatewayBaseUrl: 'https://evaisys-backend.onrender.com',
+  aiChatPath: '/chat',
+  aiClientId: 'angularex',
+  aiClientToken: 'angularex-demo-token',
 };
 
 /*

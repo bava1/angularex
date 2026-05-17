@@ -1,0 +1,92 @@
+<button
+  class="chat-launcher"
+  type="button"
+  aria-label="Open AI Assistant chat"
+  (click)="openChat()">
+  <mat-icon>smart_toy</mat-icon>
+</button>
+
+<div class="chat-overlay" *ngIf="isOpen" (click)="closeChat()"></div>
+
+<section class="chat-modal" *ngIf="isOpen" role="dialog" aria-label="AI Assistant Chat">
+  <header class="chat-modal__header">
+    <h2>Angular Developer Chat</h2>
+    <button type="button" class="chat-modal__close-icon" aria-label="Close chat" (click)="closeChat()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </header>
+
+  <div class="chat-modal__messages" #messagesContainer>
+    <div class="chat-message chat-message--empty" *ngIf="!messages.length">
+      Start the conversation with your first message.
+    </div>
+
+    <div
+      class="chat-message"
+      *ngFor="let message of messages; let i = index; trackBy: trackByIndex"
+      [class.chat-message--user]="message.role === 'user'"
+      [class.chat-message--assistant]="message.role !== 'user'">
+      <div
+        class="chat-message__role"
+        [class.chat-message__role--user]="message.role === 'user'"
+        [class.chat-message__role--assistant]="message.role !== 'user'">
+        {{ message.role === 'user' ? 'User' : 'AI Angular Agent' }}
+      </div>
+      <div class="chat-message__content" *ngIf="message.role === 'user'">{{ message.content }}</div>
+      <div class="chat-message__parts" *ngIf="message.role !== 'user'">
+        <ng-container *ngFor="let part of getParsedMessageContent(message.content); let partIndex = index; trackBy: trackByPartIndex">
+          <div class="chat-message__content" *ngIf="part.type === 'text'">{{ part.content }}</div>
+          <div class="chat-code" *ngIf="part.type === 'code'">
+            <div class="chat-code__header">
+              <span class="chat-code__lang">{{ part.language || 'text' }}</span>
+              <button
+                type="button"
+                class="chat-code__copy"
+                (click)="copyCode(part.content, i + '-' + partIndex)">
+                {{ copiedCodeKey === i + '-' + partIndex ? 'Copied' : 'Copy' }}
+              </button>
+            </div>
+            <pre><code>{{ part.content }}</code></pre>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="chat-message chat-message--assistant" *ngIf="isLoading">
+      <div class="chat-message__role chat-message__role--assistant">AI Angular Agent</div>
+      <div class="chat-message__thinking" aria-label="Thinking">
+        <span>Thinking</span>
+        <span class="chat-dots" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="chat-modal__composer">
+    <textarea
+      [(ngModel)]="inputText"
+      [disabled]="isLoading"
+      rows="3"
+      placeholder="Type your message..."
+      (keydown.enter)="onEnter($event)"></textarea>
+    <div class="chat-modal__controls">
+      <button
+        type="button"
+        class="chat-btn chat-btn--secondary"
+        *ngIf="messages.length > 0"
+        (click)="clearChat()">
+        Clear chat
+      </button>
+      <button
+        type="button"
+        class="chat-btn chat-btn--primary"
+        (click)="sendMessage()"
+        [disabled]="isLoading || !inputText.trim()">
+        {{ isLoading ? 'Sending...' : 'Send' }}
+      </button>
+    </div>
+  </footer>
+</section>

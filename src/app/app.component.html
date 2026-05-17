@@ -20,6 +20,7 @@
     <app-header (onChangeLoc)="onChangeLoc($event)" (menuOpen)="sidenav.toggle($event)" [loc]="location"></app-header>
       <router-outlet />
     <app-footer (onChangeLoc)="onChangeLoc($event)" [loc]="location"></app-footer>
+    <app-chat-widget></app-chat-widget>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

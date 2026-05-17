@@ -32,6 +32,7 @@ import { ArticlesComponent } from './modules/pages/components/articles/articles.
 import { ContactsComponent } from './modules/pages/components/contacts/contacts.component';
 import { TasksComponent } from './modules/pages/components/tasks/tasks.component';
 import { MainComponent } from './modules/core/components/main/main.component';
+import { ChatModule } from './features/chat/chat.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     PagesModule,
     CoreModule,
+    ChatModule,
     HttpClientModule,
     TranslateModule,
     TranslateModule.forRoot({

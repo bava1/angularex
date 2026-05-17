@@ -11,6 +11,10 @@
     justify-content: space-between;
     width: 100%;
 
+    &_logo {
+      cursor: pointer;
+    }
+
     &_logo img {
       width: 18%;
       margin: 20px;

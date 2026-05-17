@@ -20,7 +20,7 @@ export function tasksReducer(state: TasksState = initialState, action: TasksList
     case TasksListActions.ADD_TASK:
       return {
         ...state,
-        tasks: [...state.tasks, action.payload]
+        tasks: [action.payload, ...state.tasks]
     }
 
     case TasksListActions.DELETE_TASK:
